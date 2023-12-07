@@ -20,10 +20,9 @@ public class UserController {
 
     @GetMapping()
     public String getAllUsers (Model model) {
-        model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("user", userService.getAllUsers());
         return "index";
     }
-
 
     @GetMapping("/new")
     public String newUser (Model model) {
@@ -37,4 +36,21 @@ public class UserController {
         return "redirect:/users";
     }
 
+    @GetMapping("/edit")
+    public String edit (@RequestParam(value = "id") long id, Model model) {
+        model.addAttribute("user", userService.getById(id));
+        return "edit";
+    }
+
+    @PostMapping("/edit")
+    public String update (@ModelAttribute ("user") User user, @RequestParam(value = "id") long id) {
+        userService.update(user, id);
+        return "redirect:/users";
+    }
+
+    @PostMapping("/delete")
+    public String delete (@RequestParam(value = "id") long id) {
+        userService.delete(id);
+        return "redirect:/users";
+    }
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title User</title>
+    <title>Update Users</title>
     <!--  Стиль просто взят с интернета, для красоты проекта)-->
     <style>
         body {
@@ -47,15 +47,14 @@
     </style>
 </head>
 <body>
-<form th:method="POST" th:action="@{/users}" th:object="${user}">
-    <label for="name">Enter Name</label>
-    <input type="text" th:field="*{name}" id="name"/>
-    <br/>
-    <br/>
-    <label for="lastname">Enter Last_Name</label>
-    <input type="text" th:field="*{lastName}" id="lastname"/>
-    <br/>
-    <input type="submit" value="CREATE"/>
+<form th:method="POST" th:action="@{/users/edit?id={id}(id=${user.getId()})}" th:object="${user}">
+  <label for="name">Enter Name</label>
+  <input type="text" th:field="*{name}" id="name"/>
+  <br/>
+  <label for="lastname">Enter Last_Name</label>
+  <input type="text" th:field="*{lastName}" id="lastname"/>
+  <br/>
+  <input type="submit" value="UPDATE"/>
 </form>
 </body>
 </html>

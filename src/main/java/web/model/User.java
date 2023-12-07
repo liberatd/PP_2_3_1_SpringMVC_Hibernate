@@ -14,20 +14,15 @@ public class User {
     private String name;
 
     @Column(name = "lastname")
-    private String lastName;
+    private String lastname;
 
     public User () {}
 
-    public User(String name, String lastName) {
+    public User(String name, String lastname) {
         this.name = name;
-        this.lastName = lastName;
+        this.lastname = lastname;
     }
 
-//    public User(long id, String name, String lastName) {
-//        this.id = id;
-//        this.name = name;
-//        this.lastName = lastName;
-//    }
 
     public Long getId() {
         return id;
@@ -46,11 +41,11 @@ public class User {
     }
 
     public String getLastName() {
-        return lastName;
+        return lastname;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastname = lastName;
     }
 
     @Override
@@ -58,7 +53,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", lastName='" + lastname + '\'' +
                 '}';
     }
 }

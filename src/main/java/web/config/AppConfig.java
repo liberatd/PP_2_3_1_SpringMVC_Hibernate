@@ -1,5 +1,6 @@
 package web.config;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,7 +25,7 @@ public class AppConfig {
     private final Environment env;
 
     @Autowired
-    public AppConfig (Environment env) {
+    public AppConfig(Environment env) {
         this.env = env;
     }
 
@@ -60,4 +61,5 @@ public class AppConfig {
         jpaTransactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return jpaTransactionManager;
     }
+
 }
